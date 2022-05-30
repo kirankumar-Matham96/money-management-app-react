@@ -1,3 +1,4 @@
+import {v4 as uuidv4} from 'uuid'
 import {Component} from 'react'
 import MoneyDetails from '../MoneyDetails'
 import TransactionItem from '../TransactionItem'
@@ -39,7 +40,7 @@ const moneyTypeImageList = [
 class MoneyManager extends Component {
   state = {
     title: '',
-    amount: 0,
+    amount: '',
     type: '',
     transactionsList: [],
   }
@@ -54,6 +55,33 @@ class MoneyManager extends Component {
 
   onChangeTitle = event => {
     this.setState({title: event.target.value})
+  }
+
+  onAddingTransaction = event => {
+    event.preventDefault()
+
+    const {title, amount, type} = this.state
+    const newTransaction = {
+      id: uuidv4(),
+      title,
+      amount,
+      type,
+    }
+
+    this.setState(prevState => ({
+      transactionsList: [...prevState.transactionsList, newTransaction],
+      title: '',
+      amount: '',
+      type: '',
+    }))
+  }
+
+  onDeleteTransaction = id => {
+    this.setState(prevState => ({
+      transactionsList: prevState.transactionsList.filter(
+        eachTransaction => eachTransaction.id !== id,
+      ),
+    }))
   }
 
   render() {
@@ -96,7 +124,7 @@ class MoneyManager extends Component {
                 AMOUNT
               </label>
               <input
-                type="number"
+                type="text"
                 id="amount"
                 name="amount"
                 value={amount}
@@ -119,6 +147,13 @@ class MoneyManager extends Component {
                   Expenses
                 </option>
               </select>
+              <button
+                type="submit"
+                className="add-button"
+                onClick={this.onAddingTransaction}
+              >
+                Add
+              </button>
             </form>
           </div>
           <div className="history-container">
@@ -130,7 +165,11 @@ class MoneyManager extends Component {
                 <p className="head">Type</p>
               </li>
               {transactionsList.map(eachTransaction => (
-                <TransactionItem transactionDetails={eachTransaction} />
+                <TransactionItem
+                  transactionDetails={eachTransaction}
+                  key={eachTransaction.id}
+                  onDeleteTransaction={this.onDeleteTransaction}
+                />
               ))}
             </ul>
           </div>
