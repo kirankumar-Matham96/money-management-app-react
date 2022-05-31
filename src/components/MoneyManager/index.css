@@ -1,1 +1,174 @@
-/* Write your CSS here */
+* {
+  margin: 0;
+  padding: 0;
+}
+.bg-container {
+  min-height: 100vh;
+  padding: 16px;
+  font-family: 'Roboto';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .bg-container {
+    padding: 50px 100px;
+  }
+}
+
+.header {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/money-manager/money-manager-bg.png');
+  background-size: cover;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  margin-bottom: 40px;
+}
+@media (min-width: 768px) {
+  .header {
+    align-items: flex-start;
+    padding: 50px;
+  }
+}
+.main-heading {
+  color: #475569;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+}
+
+.welcome-text {
+  color: #475569;
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+}
+
+.money-manager-text {
+  color: #0b69ff;
+}
+@media (min-width: 768px) {
+}
+
+.money-display-container {
+  margin-bottom: 40px;
+}
+@media (min-width: 768px) {
+  .money-display-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 768px) {
+  .manage-transaction-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.add-transaction-container {
+  padding: 16px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+@media (min-width: 768px) {
+  .add-transaction-container {
+    padding: 50px;
+    width: 40%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+}
+
+.secondary-card-title {
+  color: #475569;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+@media (min-width: 768px) {
+}
+
+.label {
+  color: gray;
+  font-weight: 500;
+  margin: 16px 0 8px;
+}
+@media (min-width: 768px) {
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid gray;
+  /* border-radius: 5px; */
+}
+@media (min-width: 768px) {
+}
+
+.add-button {
+  align-self: flex-start;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: blue;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 16px 0;
+  border: none;
+  outline: none;
+}
+@media (min-width: 768px) {
+}
+
+.history-container {
+  padding: 16px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+@media (min-width: 768px) {
+  .history-container {
+    padding: 26px;
+    width: 55%;
+    margin-top: 0;
+  }
+}
+
+.transaction-history-container {
+  list-style-type: none;
+}
+@media (min-width: 768px) {
+}
+
+.heads-container {
+  display: flex;
+  /* justify-content: space-around; */
+  border: 1px solid gray;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+}
+
+.title {
+  /* border: 1px solid red; */
+  width: 100px;
+}
+.amount {
+  /* border: 1px solid red; */
+  width: 100px;
+}
+.type {
+  /* border: 1px solid red; */
+  width: 100px;
+}
+@media (min-width: 768px) {
+}

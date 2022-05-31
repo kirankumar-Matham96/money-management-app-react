@@ -10,9 +10,11 @@ const TransactionItem = props => {
 
   return (
     <li className="transaction-item-container">
-      <p className="transaction-details">{title}</p>
-      <p className="transaction-details">Rs {amount}</p>
-      <p className="transaction-details">{type}</p>
+      <div className="transaction-details-container">
+        <p className="transaction-details">{title}</p>
+        <p className="transaction-details">Rs {amount}</p>
+        <p className="transaction-details type">{type}</p>
+      </div>
       <button
         type="button"
         className="delete-button"
@@ -22,6 +24,7 @@ const TransactionItem = props => {
         <img
           src="https://assets.ccbp.in/frontend/react-js/money-manager/delete.png"
           alt="delete"
+          className="delete-icon"
         />
       </button>
     </li>
