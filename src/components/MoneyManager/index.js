@@ -4,20 +4,20 @@ import MoneyDetails from '../MoneyDetails'
 import TransactionItem from '../TransactionItem'
 import './index.css'
 
-// const transactionTypeOptions = [
-//   {
-//     optionId: 'BALANCE',
-//     displayText: 'Balance',
-//   },
-//   {
-//     optionId: 'INCOME',
-//     displayText: 'Income',
-//   },
-//   {
-//     optionId: 'EXPENSES',
-//     displayText: 'Expenses',
-//   },
-// ]
+const transactionTypeOptions = [
+  {
+    optionId: 'BALANCE',
+    displayText: 'Balance',
+  },
+  {
+    optionId: 'INCOME',
+    displayText: 'Income',
+  },
+  {
+    optionId: 'EXPENSES',
+    displayText: 'Expenses',
+  },
+]
 
 class MoneyManager extends Component {
   state = {
@@ -167,15 +167,18 @@ class MoneyManager extends Component {
                 <p className="amount">Amount</p>
                 <p className="type">Type</p>
               </div>
-              <ul className="transaction-history-container">
-                {transactionsList.map(eachTransaction => (
-                  <TransactionItem
-                    transactionDetails={eachTransaction}
-                    key={eachTransaction.id}
-                    onDeleteTransaction={this.onDeleteTransaction}
-                  />
-                ))}
-              </ul>
+              {transactionsList.length !== 0 ? (
+                <ul className="transaction-history-container">
+                  {transactionsList.map(eachTransaction => (
+                    <TransactionItem
+                      transactionDetails={eachTransaction}
+                      key={eachTransaction.id}
+                      transactionTypeOptions={transactionTypeOptions}
+                      onDeleteTransaction={this.onDeleteTransaction}
+                    />
+                  ))}
+                </ul>
+              ) : null}
             </div>
           </div>
         </div>

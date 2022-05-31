@@ -25,6 +25,7 @@
   cursor: pointer;
   width: 30px;
   height: 30px;
+  flex-shrink: 0;
 }
 .delete-icon {
   width: 100%;
